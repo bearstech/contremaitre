@@ -3,7 +3,9 @@ Contremaître
 
 Build a _supervisord_ conf from a [Procfile](https://devcenter.heroku.com/articles/procfile).
 
-Contremaitre is mix from foreman and gaffer.
+Contremaitre is mix from foreman and [gaffer](https://github.com/benoitc/gaffer).
+
+Inspiration from [this blog post](http://blog.nicolai86.eu/posts/2012-02-25/foreman-and-supervisord) targetting classical Debian without painful installation.
 
 Test it
 -------
