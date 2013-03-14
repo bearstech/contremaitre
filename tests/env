@@ -1,0 +1,4 @@
+# .env
+RAILS_ENV=production
+VERBOSE=0
+QUEUE=*

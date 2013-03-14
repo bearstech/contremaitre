@@ -1,0 +1,4 @@
+# from http://blog.nicolai86.eu/posts/2012-02-25/foreman-and-supervisord
+# Procfile.production
+unicorn: /home/app-user/.rvm/bin/app_bundle exec unicorn -c config/unicorn.rb -E production
+worker: /home/app-user/.rvm/bin/app_bundle exec rake environment resque:work
