@@ -91,6 +91,8 @@ global procfile environment"""
             parser.set(k, 'user', user)
             parser.set(k, 'directory', '/home/%s' % user)
             parser.set(k, 'environment', ','.join(['='.join(kv) for kv in self.env.items()]))
+            parser.set(k, 'stdout_logfile', '/home/%s/log/%s-out.log' % (user, name))
+            parser.set(k, 'stderr_logfile', '/home/%s/log/%s-err.log' % (user, name))
             parser.set(k, 'command', command)
             parser.set(k, 'autostart', 'true')
             parser.set(k, 'autorestart', 'true')
