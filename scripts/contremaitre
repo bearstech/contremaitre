@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+from contremaitre.procfile import Procfile
+import sys
+import os
+
+proc = Procfile(sys.argv[1])
+user = os.environ['USER']
+with open('/tmp/%s.conf' % user, 'w') as f:
+    proc.as_supervisor(user).write(f)
+print "Just create /tmp/%s.conf" % user
