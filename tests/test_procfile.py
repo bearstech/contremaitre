@@ -1,6 +1,6 @@
 import unittest
 from cStringIO import StringIO
-from procfile import Procfile
+from contremaitre.procfile import Procfile
 
 
 class TestProcfile(unittest.TestCase):
