@@ -8,6 +8,6 @@ class TestProcfile(unittest.TestCase):
     def test_simple(self):
         proc = Procfile('tests/Procfile', ['tests/env'])
         conf = StringIO()
-        proc.as_supervisor('bob').write(conf)
+        proc.as_supervisor('bob', {'worker': 2}).write(conf)
         print conf.getvalue()
         assert False

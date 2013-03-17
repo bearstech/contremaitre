@@ -2,9 +2,16 @@
 
 from contremaitre.procfile import Procfile
 import os
+import sys
+
+scale = {}
+if len(sys.argv) > 1:
+    for s in sys.argv[1].split(','):
+        key, value = s.split('=', 2)
+        scale[key] = int(value)
 
 proc = Procfile('./Procfile')
 user = os.environ['USER']
 with open('/tmp/%s.conf' % user, 'w') as f:
-    proc.as_supervisor(user).write(f)
+    proc.as_supervisor(user, scale).write(f)
 print "Just create /tmp/%s.conf" % user

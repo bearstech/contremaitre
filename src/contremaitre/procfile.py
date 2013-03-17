@@ -83,7 +83,9 @@ global procfile environment"""
             path = self.root
         return os.path.split(path)[1]
 
-    def as_supervisor(self, user):
+    def as_supervisor(self, user, scale=None):
+        if scale is None:
+            scale = {}
         parser = configparser.ConfigParser()
         for name, command in self.programs():
             k = 'program:%s-%s' % (user, name)
@@ -97,6 +99,8 @@ global procfile environment"""
             parser.set(k, 'autostart', 'true')
             parser.set(k, 'autorestart', 'true')
             parser.set(k, 'stopsignal', 'QUIT')
+            if name in scale:
+                parser.set(k, 'numprocs', scale[name])
         return parser
 
     def as_configparser(self, concurrency_settings=None):
